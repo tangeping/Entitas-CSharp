@@ -1,6 +1,59 @@
+## [1.13.0] - 2019-02-20
+### Added
+- Update roslyn
+- Update hierarchy icons
+
+### Changed
+- Change Preferences minified and doubleQuoteMode api
+
+### Fixed
+- Fix hierarchy icon null warning
+
+## [1.12.2] - 2018-12-15
+### Fixed
+- Fix EntityLinkHierarchyIcon #843
+
+## [1.12.1] - 2018-12-09
+### Added
+- Fix Jenny.exe load default `Jenny.properties` when not specified
+
+## [1.12.0] - 2018-12-09
+### Added
+- Add Preferences require concrete properties path
+- Add CodeGeneratorPreferencesWindow
+- Add EntitasEntityLinkHierarchyIcon
+
+### Changed
+- Move Jenny Unity Preferences to its own editor window `Tools/Jenny/Preferences...`
+
+### Removed
+- Remove EntitasCache
+
+### Upgrade
+- Jenny has been decoupled from Entitas even more
+- Jenny now stores its config in Jenny.properties by default
+- Entitas now stores its config in Entitas.properties by default
+- Please split Preferences.properties into Entitas.properties and Jenny.properties or delete them to automatically create new default files
+
+## [1.11.0] - 2018-11-19
+### Added
+- Add support for multiple event attributes with different event target #810
+
+### Upgrade
+- All listener interfaces with `EventTarget.Any` need to be renamed
+  - `IPositionListener` -> `IAnyPositionListener`
+  - `OnPosition` -> `OnAnyPosition`
+
+## [1.10.0] - 2018-11-14
+### Changed
+- Remove IContext from EntityLink.Link() method signature
+
+### Upgrade
+- Remove IContext from EntityLink.Link() method signature
+
 ## [1.9.2] - 2018-11-04
 ### Added
-- Fix MultiReactive system retaining entities multiple times #818
+- Hotfix for Unity Asset Store missing mono hosted msbuild
 
 ## [1.9.1] - 2018-11-03
 ### Added

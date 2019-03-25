@@ -1,20 +1,24 @@
-﻿using DesperateDevs.Serialization;
+﻿using System;
 using DesperateDevs.Unity.Editor;
 using UnityEditor;
 using UnityEngine;
 
-namespace Entitas.Unity.Editor {
-
-    public class EntitasPreferencesWindow {
-
+namespace Entitas.Unity.Editor
+{
+    public class EntitasPreferencesWindow : PreferencesWindow
+    {
         [MenuItem(EntitasMenuItems.preferences, false, EntitasMenuItemPriorities.preferences)]
-        public static void OpenPreferences() {
-            Preferences.sharedInstance = null;
-            var window = EditorLayout.GetWindow<PreferencesWindow>(
-                "Entitas " + CheckForUpdates.GetLocalVersion(),
-                new Vector2(415f, 600));
+        public static void OpenPreferences()
+        {
+            var window = GetWindow<EntitasPreferencesWindow>(true, "Entitas " + CheckForUpdates.GetLocalVersion());
+            window.minSize = new Vector2(415f, 348f);
+            window.Initialize(
+                "Entitas.properties",
+                Environment.UserName + ".userproperties",
+                "Entitas.Unity.Editor.EntitasPreferencesDrawer",
+                "Entitas.VisualDebugging.Unity.Editor.VisualDebuggingPreferencesDrawer"
+            );
 
-            window.preferencesName = "Entitas";
             window.Show();
         }
     }

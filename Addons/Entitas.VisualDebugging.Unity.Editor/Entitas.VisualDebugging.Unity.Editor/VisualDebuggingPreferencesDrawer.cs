@@ -8,7 +8,6 @@ namespace Entitas.VisualDebugging.Unity.Editor {
 
     public class VisualDebuggingPreferencesDrawer : AbstractPreferencesDrawer {
 
-        public override int priority { get { return 20; } }
         public override string title { get { return "Visual Debugging"; } }
 
         const string ENTITAS_DISABLE_VISUAL_DEBUGGING = "ENTITAS_DISABLE_VISUAL_DEBUGGING";
@@ -63,7 +62,7 @@ namespace Entitas.VisualDebugging.Unity.Editor {
                 }
                 var visualDebuggingChanged = EditorGUI.EndChangeCheck();
 
-                if (visualDebuggingChanged ) {
+                if (visualDebuggingChanged) {
                     if (_enableVisualDebugging) {
                         _scriptingDefineSymbols.RemoveDefineSymbol(ENTITAS_DISABLE_VISUAL_DEBUGGING);
                     } else {
